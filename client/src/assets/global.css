@@ -63,6 +63,36 @@
   font-style: normal;
 }
 
+.cormorant-garamond-header {
+  font-family: 'Cormorant Garamond', serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.cormorant-garamond-italic {
+  font-family: 'Cormorant Garamond', serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.bricolage-grotesque-regular {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}
+
+.bricolage-grotesque-medium {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}
+
 html {
   overflow-y: scroll; /* Ensures content is still scrollable vertically */
 }

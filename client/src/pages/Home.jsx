@@ -12,9 +12,13 @@ import {
 } from '@chakra-ui/react';
 import { FaFacebook, FaGithub } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
-import orbyteLogo from '@/assets/orbyte-logo.webp';
+import orbyteLogo from '@/assets/orbyte-logo-phase-ii.webp';
+import orbyteLogoHover from '@/assets/orbyte-logo-black-phase-ii.webp';
+import { useState } from 'react';
 
 const Home = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <Container
       as='section'
@@ -34,7 +38,7 @@ const Home = () => {
           beamWidth={2}
           beamHeight={15}
           beamNumber={12}
-          lightColor='#a0a0ff'
+          lightColor='#10b0c9'
           speed={2}
           noiseIntensity={1.75}
           scale={0.2}
@@ -54,18 +58,41 @@ const Home = () => {
         right={0}
         zIndex={2}
       >
-        {/* Logo and Copyright */}
-        <FadeContent
-          blur={true}
-          duration={1500}
-          easing='ease-out'
-          initialOpacity={0}
-        >
-          <Image
-            height={{ base: '60px', md: '80px' }}
-            src={orbyteLogo}
-            alt='Orbyte Logo'
-          />
+        {/* Logo */}
+        <FadeContent blur duration={1500} easing='ease-out' initialOpacity={0}>
+          <Flex justify-content='center' align='center'>
+            <Box
+              bg={isHovered ? 'white' : 'transparent'}
+              borderRadius='full'
+              p={2}
+              transition='all 0.3s ease'
+              display='inline-flex'
+              alignItems='center'
+              justifyContent='center'
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              cursor='pointer'
+            >
+              <Image
+                height={{ base: '25px', md: '35px' }}
+                src={isHovered ? orbyteLogoHover : orbyteLogo}
+                alt='Orbyte Logo'
+                transition='all 0.3s ease'
+              />
+            </Box>
+            <Heading
+              fontSize={{ base: 'md', md: 'xl' }}
+              textAlign='center'
+              letterSpacing='1px'
+              lineHeight={0.9}
+              color='white'
+              mt={1}
+              ml={1}
+              className='bricolage-grotesque-medium'
+            >
+              Orbyte Studio
+            </Heading>
+          </Flex>
         </FadeContent>
 
         {/* Social Icons */}
@@ -119,42 +146,65 @@ const Home = () => {
           textAlign='center'
           px={{ base: 4, md: 0 }}
         >
+          {/* Explore the Unexpected */}
           <Text
-            fontSize={{ base: 'xl', md: '3xl' }}
+            fontSize={{ base: 'md', md: '2xl' }}
             color='white'
-            className='bebas-neue-regular'
+            className='bricolage-grotesque-medium'
+            mb={{ base: 4, md: 0 }}
           >
-            EXPLORE THE{' '}
-            <span style={{ color: '#a0a0ff' }} className='bebas-neue-regular'>
-              UNEXPECTED
+            explore the{' '}
+            <span
+              style={{ color: '#41e0f8' }}
+              className='bricolage-grotesque-medium'
+            >
+              unexpected
             </span>
           </Text>
+
+          {/* Orbyte Studio */}
           <Heading
-            fontSize={{ base: '6xl', md: '8xl' }}
+            fontSize={{ base: '4xl', md: '8xl' }}
             mb={4}
-            fontWeight='bold'
-            textAlign={'center'}
-            letterSpacing={'5px'}
+            textAlign='center'
+            letterSpacing='1px'
             lineHeight={0.9}
             color='white'
-            className='montserrat-header'
+            className='cormorant-garamond-header'
           >
-            ORBYTE STUDIO
+            <Box
+              as='span'
+              className='cormorant-garamond-italic'
+              color='#41e0f8'
+              fontSize={{ base: '4rem', md: '8rem' }}
+            >
+              O
+            </Box>
+            rbyte Studi
+            <Box
+              as='span'
+              className='cormorant-garamond-italic'
+              color='white'
+              fontSize={{ base: '2rem', md: '4rem' }}
+            >
+              O
+            </Box>
           </Heading>
-          <Heading
-            fontSize={{ base: 'md', md: 'xl' }}
-            mb={8}
+
+          {/* Where your dreams are byte away from the future */}
+          <Text
+            fontSize={{ base: 'sm', md: 'xl' }}
+            mt={{ base: 4, md: 8 }}
             color='white'
             textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
-            fontStyle='italic'
-            className='bebas-neue-regular'
+            className='bricolage-grotesque-medium'
           >
             <ShinyText
-              text='We Are Orbyte Studio, Where Your Dreams Are Byte Away From The Future'
+              text='where your dreams are byte away from the future'
               disabled={false}
               speed={3}
             />
-          </Heading>
+          </Text>
         </Box>
       </FadeContent>
     </Container>
