@@ -20,17 +20,17 @@ export const Navbar = () => {
 
   return (
     <Box
-      bottom={{ base: 4, md: 8 }}
+      bottom={{ base: 2, md: 4 }}
       zIndex={2}
       display='flex'
       position='fixed'
-      gap={{ base: 0.5, md: 1 }}
-      p={{ base: 1, md: 1.5 }}
-      borderRadius='2xl'
-      bg='rgba(255, 255, 255, 0.1)'
-      backdropFilter='blur(12px)'
-      border='1px solid rgba(255, 255, 255, 0.2)'
-      boxShadow='0 8px 32px 0 rgba(31, 38, 135, 0.15)'
+      gap={{ base: 0.25, md: 0.5 }}
+      p={{ base: 0.5, md: 1 }}
+      borderRadius='xl'
+      bg='rgba(255, 255, 255, 0.05)'
+      backdropFilter='blur(16px)'
+      border='1px solid rgba(255, 255, 255, 0.18)'
+      boxShadow='0 4px 30px rgba(0, 0, 0, 0.1)'
     >
       <FadeContent
         blur={true}
@@ -43,80 +43,80 @@ export const Navbar = () => {
           to='/'
           variant='ghost'
           color='white'
-          size='sm'
+          size='xs'
           fontWeight='medium'
-          fontSize={{ base: 'xs', md: 'sm' }}
+          fontSize={{ base: '2xs', md: 'xs' }}
           borderRadius='lg'
           transition='all 0.3s ease-in-out'
           bg='rgba(255, 255, 255, 0.05)'
           _hover={{ bg: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
-          px={{ base: 1, md: 2 }}
+          px={{ base: 1, md: 1.5 }}
         >
           <FiHome
-            size={16}
-            style={{ marginRight: { base: '4px', md: '6px' } }}
+            size={14}
+            style={{ marginRight: { base: '2px', md: '4px' } }}
           />
-          <Text mt={1}>Home</Text>
+          <Text>Home</Text>
         </Button>
         <Button
           as={RouterLink}
           to='/about'
           variant='ghost'
           color='white'
-          size='sm'
+          size='xs'
           fontWeight='medium'
-          fontSize={{ base: 'xs', md: 'sm' }}
+          fontSize={{ base: '2xs', md: 'xs' }}
           borderRadius='lg'
           transition='all 0.3s ease-in-out'
           bg='rgba(255, 255, 255, 0.05)'
           _hover={{ bg: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
-          px={{ base: 1, md: 2 }}
+          px={{ base: 1, md: 1.5 }}
         >
           <FiInfo
-            size={16}
-            style={{ marginRight: { base: '4px', md: '6px' } }}
+            size={14}
+            style={{ marginRight: { base: '2px', md: '4px' } }}
           />
-          <Text mt={1}>About</Text>
+          <Text>About</Text>
         </Button>
         <Button
           as={RouterLink}
           to='/team'
           variant='ghost'
           color='white'
-          size='sm'
+          size='xs'
           fontWeight='medium'
-          fontSize={{ base: 'xs', md: 'sm' }}
+          fontSize={{ base: '2xs', md: 'xs' }}
           borderRadius='lg'
           transition='all 0.3s ease-in-out'
           bg='rgba(255, 255, 255, 0.05)'
           _hover={{ bg: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
-          px={{ base: 1, md: 2 }}
+          px={{ base: 1, md: 1.5 }}
         >
           <FiUsers
-            size={16}
-            style={{ marginRight: { base: '4px', md: '6px' } }}
+            size={14}
+            style={{ marginRight: { base: '2px', md: '4px' } }}
           />
-          <Text mt={1}>Team</Text>
+          <Text>Team</Text>
         </Button>
         <Button
           as={RouterLink}
           to='/projects'
           variant='ghost'
           color='white'
-          size='sm'
+          size='xs'
           fontWeight='medium'
-          fontSize={{ base: 'xs', md: 'sm' }}
+          fontSize={{ base: '2xs', md: 'xs' }}
           borderRadius='lg'
           transition='all 0.3s ease-in-out'
           bg='rgba(255, 255, 255, 0.05)'
           _hover={{ bg: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
-          px={{ base: 1, md: 2 }}
+          px={{ base: 1, md: 1.5 }}
         >
           <IoBriefcaseOutline
-            size={16}
-            style={{ marginRight: { base: '4px', md: '6px' } }}
+            size={14}
+            style={{ marginRight: { base: '2px', md: '4px' } }}
           />
-          <Text mt={1}>Projects</Text>
+          <Text>Projects</Text>
         </Button>
 
         <Menu.Root
@@ -130,7 +130,7 @@ export const Navbar = () => {
               variant='ghost'
               aria-label='Menu'
               color='white'
-              size='sm'
+              size='xs'
               borderRadius='lg'
               transition='all 0.3s ease-in-out'
               bg='rgba(255, 255, 255, 0.05)'
@@ -138,7 +138,7 @@ export const Navbar = () => {
               _expanded={{ bg: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <FiX size={16} /> : <FiMenu size={16} />}
+              {isMenuOpen ? <FiX size={14} /> : <FiMenu size={14} />}
             </IconButton>
           </Menu.Trigger>
 
@@ -146,13 +146,29 @@ export const Navbar = () => {
             <Menu.Positioner>
               <Menu.Content
                 borderRadius='xl'
-                bg='rgba(255, 255, 255, 0.1)'
-                backdropFilter='blur(12px)'
-                border='1px solid rgba(255, 255, 255, 0.2)'
-                boxShadow='0 8px 32px 0 rgba(31, 38, 135, 0.15)'
-                p={2}
-                minW={{ base: '120px', md: '140px' }}
+                bg='rgba(255, 255, 255, 0.05)'
+                backdropFilter='blur(16px)'
+                border='1px solid rgba(255, 255, 255, 0.18)'
+                boxShadow='0 4px 30px rgba(0, 0, 0, 0.1)'
+                p={1.5}
+                minW={{ base: '100px', md: '120px' }}
               >
+                <Menu.Item
+                  value='blogs'
+                  as={RouterLink}
+                  to='/blogs'
+                  color='white'
+                  borderRadius='lg'
+                  fontWeight='medium'
+                  fontSize={{ base: '2xs', md: 'xs' }}
+                  bg='rgba(255, 255, 255, 0.05)'
+                  _hover={{ bg: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
+                  py={1.5}
+                  px={2.5}
+                >
+                  <FiLock size={14} style={{ marginRight: '6px' }} />
+                  Blogs
+                </Menu.Item>
                 <Menu.Item
                   value='contact'
                   as={RouterLink}
@@ -160,13 +176,13 @@ export const Navbar = () => {
                   color='white'
                   borderRadius='lg'
                   fontWeight='medium'
-                  fontSize={{ base: 'xs', md: 'sm' }}
+                  fontSize={{ base: '2xs', md: 'xs' }}
                   bg='rgba(255, 255, 255, 0.05)'
                   _hover={{ bg: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
-                  py={2}
-                  px={3}
+                  py={1.5}
+                  px={2.5}
                 >
-                  <FiMail size={16} style={{ marginRight: '8px' }} />
+                  <FiMail size={14} style={{ marginRight: '6px' }} />
                   <Text mt={1}>Contact</Text>
                 </Menu.Item>
                 <Menu.Item
@@ -176,30 +192,14 @@ export const Navbar = () => {
                   color='white'
                   borderRadius='lg'
                   fontWeight='medium'
-                  fontSize={{ base: 'xs', md: 'sm' }}
+                  fontSize={{ base: '2xs', md: 'xs' }}
                   bg='rgba(255, 255, 255, 0.05)'
                   _hover={{ bg: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
-                  py={2}
-                  px={3}
+                  py={1.5}
+                  px={2.5}
                 >
-                  <FiMessageSquare size={16} style={{ marginRight: '8px' }} />
+                  <FiMessageSquare size={14} style={{ marginRight: '6px' }} />
                   <Text mt={1}>Feedback</Text>
-                </Menu.Item>
-                <Menu.Item
-                  as={RouterLink}
-                  disabled
-                  value='login'
-                  color='white'
-                  borderRadius='lg'
-                  fontWeight='medium'
-                  fontSize={{ base: 'xs', md: 'sm' }}
-                  bg='rgba(255, 255, 255, 0.05)'
-                  _hover={{ bg: 'rgba(255, 255, 255, 0.2)', color: 'white' }}
-                  py={2}
-                  px={3}
-                >
-                  <FiLock size={16} style={{ marginRight: '8px' }} />
-                  Coming Soon
                 </Menu.Item>
               </Menu.Content>
             </Menu.Positioner>

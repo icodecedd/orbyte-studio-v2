@@ -10,7 +10,7 @@ import {
   Image,
   Text,
 } from '@chakra-ui/react';
-import { FaFacebook, FaGithub } from 'react-icons/fa';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 import orbyteLogo from '@/assets/orbyte-logo-phase-ii.webp';
 import orbyteLogoHover from '@/assets/orbyte-logo-black-phase-ii.webp';
@@ -114,7 +114,7 @@ const Home = () => {
               rel='noopener noreferrer'
               to='https://github.com/Orbyte-Studio'
             >
-              <FaGithub />
+              <FaInstagram />
             </IconButton>
             <IconButton
               variant='ghost'
@@ -185,7 +185,7 @@ const Home = () => {
               as='span'
               className='cormorant-garamond-italic'
               color='white'
-              fontSize={{ base: '2rem', md: '4rem' }}
+              fontSize={{ base: '1.5rem', md: '4rem' }}
             >
               O
             </Box>

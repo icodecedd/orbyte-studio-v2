@@ -6,6 +6,7 @@ import Team from './pages/Team';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Feedback from './pages/Feedback';
+import Who from './pages/Who';
 import './assets/global.css';
 import { Toaster } from './components/ui/toaster';
 
@@ -17,7 +18,7 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<Navigate to='home' replace />} />
           <Route path='home' element={<Home />} />
-          <Route path='about' element={<About />} />
+          <Route path='about' element={<Who />} />
           <Route path='team' element={<Team />} />
           <Route path='projects' element={<Projects />} />
           <Route path='contact' element={<Contact />} />

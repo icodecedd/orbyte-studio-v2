@@ -106,7 +106,7 @@ const About = () => {
       overflow='hidden'
       maxW='100%'
       mt={{ base: 0, md: 16 }}
-      mb={{ base: 0, md: 32 }}
+      fontSize={{ base: '4xl', md: '6xl' }}
     >
       <AnimatedContent
         distance={100}

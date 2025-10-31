@@ -1,5 +1,4 @@
 import { Center, Container } from '@chakra-ui/react';
-import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Navbar } from './Navbar';
 
@@ -8,7 +7,7 @@ export const Layout = () => {
     <Center>
       <Container
         as='section'
-        id='home'
+        id='layout'
         minH='100vh'
         display='flex'
         flexDirection='column'
