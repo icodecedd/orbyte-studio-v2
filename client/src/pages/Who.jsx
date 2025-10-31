@@ -8,10 +8,13 @@ import {
   Flex,
   Image,
   Highlight,
+  Button,
 } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom';
 import OrbyteAnimation from '@/assets/logo-animation-v2.mp4';
 import OrbyteGroupPhoto1 from '@/assets/orbyte-group-photo-1.webp';
 import OrbyteGroupPhoto2 from '@/assets/orbyte-group-photo-2.webp';
+import JoinUsPhoto from '@/assets/join-us-photo.webp';
 const Who = () => {
   return (
     <Container
@@ -27,8 +30,9 @@ const Who = () => {
       overflow='hidden'
       maxW='100%'
       mb={{ base: 0, md: 32 }}
+      color='#fff'
     >
-      {/* About Orbyte Studio */}
+      {/* About orbyte studio */}
       <Box
         bgColor='#10b0c9'
         p='20px'
@@ -115,7 +119,7 @@ const Who = () => {
         </Text>
       </Box>
 
-      {/* Testimonials */}
+      {/* Stats section */}
       <SimpleGrid
         w='100%'
         mt={{ base: 8, md: 24 }}
@@ -265,7 +269,7 @@ const Who = () => {
           order={{ base: 1, md: 2 }}
         >
           <Heading
-            fontSize='4xl'
+            fontSize={{ base: '2xl', md: '4xl' }}
             mb={{ base: 3, md: 6 }}
             color='white'
             textAlign={{ base: 'center', md: 'right' }}
@@ -323,7 +327,7 @@ const Who = () => {
           mb={{ base: 4, md: 0 }}
         >
           <Heading
-            fontSize='4xl'
+            fontSize={{ base: '2xl', md: '4xl' }}
             mb={{ base: 3, md: 6 }}
             color='white'
             textAlign={{ base: 'center', md: 'left' }}
@@ -374,6 +378,78 @@ const Who = () => {
       </Flex>
 
       {/* Join us CTA section */}
+      <Flex
+        alignItems='center'
+        flexDirection={{ base: 'column', md: 'row' }}
+        justifyContent='center'
+        w='100%'
+        bgColor='#10b0c9'
+        borderRadius='xl'
+        mt={{ base: 8, md: 16 }}
+        mb={{ base: 8, md: 16 }}
+      >
+        <Image
+          src={JoinUsPhoto}
+          alt='Join Us Photo'
+          w={{ base: '100%', md: '20%' }}
+          objectFit={{ base: 'cover', md: 'contain' }}
+          borderRadius='xl'
+        />
+        <Flex
+          flexDirection={{ base: 'column', md: 'row' }}
+          alignItems='center'
+          p='20px'
+        >
+          <Box>
+            <Heading
+              className='cormorant-garamond-header'
+              fontSize='2xl'
+              fontWeight='bold'
+            >
+              Join the{' '}
+              <Box
+                as='span'
+                className='cormorant-garamond-italic'
+                fontSize='2xl'
+                fontWeight='bold'
+              >
+                team
+              </Box>
+            </Heading>
+            <Text
+              className='bricolage-grotesque-medium'
+              textAlign='justify'
+              mt={1}
+              fontSize={'sm'}
+              width={{ base: '100%', md: '95%' }}
+            >
+              We’re always looking for passionate creators who want to make an
+              impact through storytelling and design. At Orbyte Studio, you’ll
+              collaborate with driven minds, explore bold ideas, and bring
+              visions to life. If you’re ready to grow, create, and be part of
+              something bigger — join us today.
+            </Text>
+          </Box>
+          <Button
+            as={RouterLink}
+            to='/contact'
+            size='lg'
+            mt={{ base: 4, md: 0 }}
+            mr={{ base: 0, md: 8 }}
+            borderRadius='full'
+            colorScheme='blue'
+            className='cormorant-garamond-header'
+          >
+            Contact Us
+          </Button>
+        </Flex>
+      </Flex>
+
+      {/* Our story section */}
+      <Box></Box>
+
+      {/* Mission and Vision section */}
+      <Box></Box>
     </Container>
   );
 };
