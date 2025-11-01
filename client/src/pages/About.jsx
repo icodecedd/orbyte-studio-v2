@@ -1,97 +1,28 @@
 import {
   Container,
-  Heading,
-  Image,
-  Text,
-  Flex,
   Box,
-  Separator,
+  Heading,
+  Text,
+  SimpleGrid,
+  Flex,
+  Image,
   Highlight,
+  Button,
+  VStack,
 } from '@chakra-ui/react';
-import orbit from '@/assets/orbit.webp';
-import star from '@/assets/star.webp';
-import whiteHole from '@/assets/white-hole.webp';
-import stellar from '@/assets/stellar.webp';
-import orbital from '@/assets/orbital.webp';
-import CurvedLoop from '@/blocks/TextAnimations/CurvedLoop/CurvedLoop';
-import AnimatedContent from '@/blocks/Animations/AnimatedContent/AnimatedContent';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect, useRef } from 'react';
-
-gsap.registerPlugin(ScrollTrigger);
+import { Link as RouterLink } from 'react-router-dom';
+import OrbyteAnimation from '@/assets/logo-animation-v2.mp4';
+import OrbyteGroupPhoto1 from '@/assets/orbyte-group-photo-1.webp';
+import OrbyteGroupPhoto2 from '@/assets/orbyte-group-photo-2.webp';
+import JoinUsPhoto from '@/assets/join-us-photo.webp';
+import ChiefExecutiveOfficer from '@/assets/pii-chief-executive-officer.webp';
+import ProjectManager from '@/assets/pii-project-manager.webp';
+import CreativeDirector from '@/assets/pii-creative-director.webp';
+import ITSpecialist from '@/assets/pii-it-specialist.webp';
+import MissionPhoto from '@/assets/mission-pii.webp';
+import VisionPhoto from '@/assets/vision-pii.webp';
 
 const About = () => {
-  const whiteHoleRef = useRef(null);
-  const missionRef = useRef(null);
-  const visionRef = useRef(null);
-
-  useEffect(() => {
-    // WhiteHole image animation
-    const whiteHoleImage = whiteHoleRef.current;
-    gsap.fromTo(
-      whiteHoleImage,
-      { width: '50%' }, // Initial width
-      {
-        width: '100%', // Final width as it becomes visible
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: whiteHoleImage,
-          start: 'top 80%',
-          end: 'top 20%',
-          scrub: 0.8,
-          toggleActions: 'restart pause reverse pause',
-        },
-      }
-    );
-
-    // Mission section animation
-    const missionSection = missionRef.current;
-    gsap.fromTo(
-      missionSection,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: missionSection,
-          start: 'top 80%',
-          end: 'top 20%',
-          scrub: 0.8,
-          toggleActions: 'restart pause reverse pause',
-        },
-      }
-    );
-
-    // Vision section animation
-    const visionSection = visionRef.current;
-    gsap.fromTo(
-      visionSection,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: visionSection,
-          start: 'top 80%',
-          end: 'top 20%',
-          scrub: 0.8,
-          toggleActions: 'restart pause reverse pause',
-        },
-      }
-    );
-
-    // Cleanup ScrollTrigger on component unmount
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
-
   return (
     <Container
       as='section'
@@ -101,374 +32,665 @@ const About = () => {
       flexDirection='column'
       alignItems='center'
       justifyContent='center'
-      py={{ base: 16, md: 0 }}
+      py={{ base: 16, md: 8 }}
       position='relative'
       overflow='hidden'
       maxW='100%'
-      mt={{ base: 0, md: 16 }}
-      fontSize={{ base: '4xl', md: '6xl' }}
+      mb={{ base: 0, md: 32 }}
+      color='#fff'
     >
-      <AnimatedContent
-        distance={100}
-        direction='horizontal'
-        reverse={false}
-        duration={0.8}
-        ease='power3.out'
-        animateOpacity
-        scale={1}
-        threshold={0.1}
+      {/* ── HERO ─────────────────────────────────────────────────────── */}
+      <Box
+        bgGradient='to-b'
+        gradientFrom={'#0b6477'}
+        gradientTo={'#0a1d2e'}
+        p='20px'
+        w='100%'
+        h={{ base: '35vh', md: '60vh' }}
+        textAlign='center'
+        borderRadius='xl'
+        display='flex'
+        flexDirection='column'
+        alignItems='center'
       >
-        <Flex
-          direction={{ base: 'column', md: 'row' }}
-          alignItems='center'
-          justifyContent='space-between'
-          w='100%'
-          maxW='1200px'
-          mb={12}
-          px={{ base: 4, md: 0 }}
+        <Text
+          className='cormorant-garamond-header'
+          fontWeight='medium'
+          fontSize={{ base: 'sm', md: 'lg' }}
+          letterSpacing='wide'
+          textTransform='uppercase'
+          opacity={0.9}
         >
-          <Box flex='1' order={{ base: 2, md: 1 }}>
-            <Image
-              src={orbit}
-              alt='Orbit'
-              w='100%'
-              h='300px'
-              objectFit='fill'
-              r
-              borderRadius='2xl'
-            />
-          </Box>
+          About Orbyte Studio
+        </Text>
+        <Heading
+          className='cormorant-garamond-header'
+          fontSize={{ base: '4xl', md: '7xl' }}
+          textAlign='center'
+          letterSpacing='tight'
+          lineHeight={0.9}
+        >
+          H
           <Box
-            flex='1'
-            textAlign='justify'
-            pl={{ base: 0, md: 8 }}
-            mb={{ base: 4, md: 0 }}
-            order={{ base: 1, md: 2 }}
+            as='span'
+            className='cormorant-garamond-italic'
+            color='#41e0f8'
+            fontSize={{ base: '4xl', md: '7xl' }}
           >
-            <Heading
-              fontSize='4xl'
-              mb={4}
-              color='white'
-              textAlign={{ base: 'center', md: 'right' }}
-              textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
-              className='bebas-neue-regular'
-            >
-              WHAT ARE WE{' '}
-              <span style={{ color: '#a0a0ff' }} className='bebas-neue-regular'>
-                BUILDING
-              </span>
-            </Heading>
-            <Text
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='white'
-              textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
-              className='work-sans-regular'
-            >
-              <Highlight
-                query={['crafting the future of multimedia', 'storytelling']}
-                styles={{
-                  bg: '#a0a0ff', // bright lavender background
-                  color: 'black', // dark text stands out more
-                  px: 1,
-                  borderRadius: 'md',
-                }}
-              >
-                At Orbyte Studio, we're crafting the future of multimedia
-                storytelling. Like celestial bodies that illuminate the cosmos,
-                we create content that captures imagination and transforms ideas
-                into stellar experiences. Our multimedia company specializes in
-                film production, digital design, strategic campaigns, and
-                immersive brand narratives that resonate across galaxies of
-                audiences. We don't just produce content—we architect dreams and
-                engineer inspiration.
-              </Highlight>
-            </Text>
+            o
           </Box>
-        </Flex>
-      </AnimatedContent>
+          w it all st
+          <Box
+            as='span'
+            className='cormorant-garamond-italic'
+            fontSize={{ base: '4xl', md: '7xl' }}
+          >
+            a
+          </Box>
+          rted
+        </Heading>
+      </Box>
+      {/* ── ANIMATION ─────────────────────────────────────────────── */}
+      <Box h={{ base: '10vh', md: '30vh' }}>
+        <Box
+          as='video'
+          autoPlay
+          muted
+          loop
+          playsInline
+          borderRadius='2xl'
+          boxShadow='2xl'
+          width='100%'
+          maxW='900px'
+          position='absolute'
+          top={{ base: '2.5%', md: '4%' }}
+          left={{ base: '0', md: '20%' }}
+          src={OrbyteAnimation}
+        >
+          Your browser does not support the video tag.
+        </Box>
+      </Box>
 
-      <AnimatedContent
-        distance={100}
-        direction='horizontal'
-        reverse={true}
-        duration={0.8}
-        ease='power3.out'
-        animateOpacity
-        scale={1}
-        threshold={0.1}
+      {/* ── ORIGIN STORY ─────────────────────────────────────────────── */}
+      <Box
+        w='100%'
+        display='flex'
+        justifyContent='center'
+        mb={{ base: 12, md: 20 }}
       >
-        <Flex
-          direction={{ base: 'column', md: 'row' }}
-          alignItems='center'
-          justifyContent='space-between'
-          w='100%'
-          maxW='1200px'
-          mb={12}
-          px={{ base: 4, md: 0 }}
+        <Text
+          fontSize={{ base: 'md', md: 'lg' }}
+          textAlign='center'
+          className='bricolage-grotesque-medium'
+          my={{ base: 2, md: 4 }}
+          lineHeight='tall'
+          w='80%'
         >
-          <Box
-            flex='1'
-            textAlign='justify'
-            pr={{ base: 0, md: 8 }}
-            mb={{ base: 4, md: 0 }}
+          It all began in our <strong>Multimedia class</strong> — a simple
+          project that sparked a much bigger idea. We wanted to stand out, to
+          create something beyond requirements, something that reflected who we
+          are as IT students — creative, curious, and driven by a single vision:{' '}
+          <strong>to make an impact through innovation and design</strong>.
+        </Text>
+      </Box>
+
+      {/* ── STATS ─────────────────────────────────────────────────────── */}
+      <SimpleGrid
+        w='100%'
+        mb={{ base: 8, md: 12 }}
+        columns={{ base: 1, sm: 2, md: 3 }}
+        spacing={{ base: 8, md: 16 }}
+        justifyItems='center'
+        bg='#111827'
+        p={{ base: 4, md: 8 }}
+        borderRadius='xl'
+      >
+        {/* Core Members */}
+        <Box textAlign='center' mb={{ base: 8, md: 0 }}>
+          <Heading
+            fontSize={{ base: '4xl', md: '6xl' }}
+            fontWeight='bold'
+            color='teal.300'
+            mb={{ base: 2, md: 4 }}
+            className='cormorant-garamond-header'
           >
-            <Heading
-              fontSize='4xl'
-              mb={4}
-              color='white'
-              textAlign={{ base: 'center', md: 'left' }}
-              textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
-              className='bebas-neue-regular'
-            >
-              WHO WE{' '}
-              <span style={{ color: '#a0a0ff' }} className='bebas-neue-regular'>
-                ARE
-              </span>
-            </Heading>
-            <Text
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='white'
-              textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
-              className='work-sans-regular'
-            >
-              <Highlight
-                query={[
-                  'dreamers',
-                  'creators',
-                  'cosmic architects',
-                  'filmmakers',
-                  'designers',
-                  'strategists',
-                  'storytellers',
-                ]}
-                styles={{
-                  bg: '#a0a0ff', // bright lavender background
-                  color: 'black', // dark text stands out more
-                  px: 1,
-                  borderRadius: 'md',
-                }}
-              >
-                We are dreamers, creators, and cosmic architects united by a
-                shared passion for multimedia excellence. Our constellation
-                includes visionaries from diverse backgrounds—filmmakers,
-                designers, strategists, and storytellers—all orbiting around the
-                common goal of creating content that moves, inspires, and
-                endures. Like the phases of the moon, we embrace constant
-                evolution, always seeking new ways to illuminate the path
-                forward for our team, clients, and the industry we serve.
-              </Highlight>
-            </Text>
-          </Box>
-          <Box flex='1'>
-            <Image
-              src={star}
-              alt='Star'
-              w='100%'
-              h='300px'
-              objectFit='fill'
-              borderRadius='2xl'
-            />
-          </Box>
-        </Flex>
-      </AnimatedContent>
+            4
+          </Heading>
+          <Text
+            fontSize={{ base: 'md', md: 'lg' }}
+            opacity={0.9}
+            className='bricolage-grotesque-medium'
+          >
+            Core Members
+          </Text>
+          <Text
+            opacity={0.7}
+            fontSize='sm'
+            maxW='sm'
+            mx='auto'
+            className='bricolage-grotesque-medium'
+          >
+            The backbone of our organization — leading every initiative and
+            vision.
+          </Text>
+        </Box>
 
-      <CurvedLoop
-        marqueeText='✦ORBYTE✦MAKE✦INNOVATIONS✦'
-        speed={1.8}
-        curveAmount={0}
-        direction='right'
-        interactive={true}
-        className='anton-sc-regular curved-loop'
-      />
+        {/* OJTs */}
+        <Box textAlign='center' mb={{ base: 8, md: 0 }}>
+          <Heading
+            fontSize={{ base: '4xl', md: '6xl' }}
+            fontWeight='bold'
+            color='cyan.300'
+            mb={{ base: 2, md: 4 }}
+            className='cormorant-garamond-header'
+          >
+            9
+          </Heading>
+          <Text
+            fontSize={{ base: 'md', md: 'lg' }}
+            opacity={0.9}
+            className='bricolage-grotesque-medium'
+          >
+            On-the-Job Trainees
+          </Text>
+          <Text
+            opacity={0.7}
+            fontSize='sm'
+            maxW='sm'
+            mx='auto'
+            className='bricolage-grotesque-medium'
+          >
+            Dedicated interns bringing fresh ideas and real-world impact.
+          </Text>
+        </Box>
 
+        {/* Another Metric */}
+        <Box textAlign='center' mb={{ base: 8, md: 0 }}>
+          <Heading
+            fontSize={{ base: '4xl', md: '6xl' }}
+            fontWeight='bold'
+            color='purple.300'
+            mb={{ base: 2, md: 4 }}
+            className='cormorant-garamond-header'
+          >
+            1
+          </Heading>
+          <Text
+            fontSize={{ base: 'md', md: 'lg' }}
+            opacity={0.9}
+            className='bricolage-grotesque-medium'
+          >
+            Vision
+          </Text>
+          <Text
+            opacity={0.7}
+            fontSize='sm'
+            maxW='sm'
+            mx='auto'
+            className='bricolage-grotesque-medium'
+          >
+            To inspire, innovate, and make technology a bridge for creativity.
+          </Text>
+        </Box>
+      </SimpleGrid>
+
+      {/* ── LEADERSHIP INTRO ─────────────────────────────────────────── */}
+      <Box textAlign='center' py={{ base: 12, md: 20 }}>
+        <Heading
+          className='cormorant-garamond-italic'
+          fontSize={{ base: '3xl', md: '5xl' }}
+          fontWeight='bold'
+          mb={{ base: 2, md: 4 }}
+        >
+          Meet Our Leadership
+        </Heading>
+        <Text
+          opacity={0.75}
+          fontSize={{ base: 'md', md: 'lg' }}
+          maxW='3xl'
+          className='bricolage-grotesque-medium'
+        >
+          At Orbyte Studio, leadership is more than direction — it’s
+          collaboration in motion. What began as a group of passionate
+          multimedia students evolved into a team of creators, thinkers, and
+          visionaries who lead with purpose.
+        </Text>
+      </Box>
+
+      <SimpleGrid
+        columns={{ base: 1, sm: 2, md: 4 }}
+        gap={{ base: 4, md: 2 }}
+        mb={{ base: 12, md: 16 }}
+      >
+        <Image
+          src={ChiefExecutiveOfficer}
+          alt='Chief Executive Officer'
+          borderRadius='xl'
+          _hover={{
+            transform: 'scale(1.05)',
+            transition: 'transform 0.3s ease-in-out',
+          }}
+          boxShadow='lg'
+          border='2px solid'
+          borderColor='#1f2937'
+        />
+        <Image
+          src={ProjectManager}
+          alt='Project Manager'
+          borderRadius='xl'
+          _hover={{
+            transform: 'scale(1.05)',
+            transition: 'transform 0.3s ease-in-out',
+          }}
+          boxShadow='lg'
+          border='2px solid'
+          borderColor='#1f2937'
+        />
+        <Image
+          src={CreativeDirector}
+          alt='Creative Director'
+          borderRadius='xl'
+          _hover={{
+            transform: 'scale(1.05)',
+            transition: 'transform 0.3s ease-in-out',
+          }}
+          boxShadow='lg'
+          border='2px solid'
+          borderColor='#1f2937'
+        />
+        <Image
+          src={ITSpecialist}
+          alt='IT Specialist'
+          borderRadius='xl'
+          _hover={{
+            transform: 'scale(1.05)',
+            transition: 'transform 0.3s ease-in-out',
+          }}
+          boxShadow='lg'
+          border='2px solid'
+          borderColor='#1f2937'
+        />
+      </SimpleGrid>
+
+      {/* ── WHAT WE BUILD ─────────────────────────────────────────────── */}
       <Flex
         direction={{ base: 'column', md: 'row' }}
         alignItems='center'
-        justifyContent='center'
+        justifyContent='space-between'
         w='100%'
-        maxW='1200px'
-        mt={{ base: 4, md: 0 }}
-        mb={{ base: 12, md: 24 }}
+        maxW='1300px'
+        py={{ base: 12, md: 20 }}
       >
-        <Box flex='1' display='flex' justifyContent='center'>
+        <Box flex='1' order={{ base: 2, md: 1 }}>
           <Image
-            id='whiteHole'
-            ref={whiteHoleRef}
-            src={whiteHole}
-            alt='Orbit'
-            h='300px'
-            objectFit='fill'
+            src={OrbyteGroupPhoto1}
+            alt='Orbyte Group Photo 1'
+            w='100%'
+            h='400px'
+            objectFit={{ base: 'cover', md: 'fill' }}
+            borderRadius='2xl'
+          />
+        </Box>
+        <Box
+          flex='1'
+          textAlign='justify'
+          pl={{ base: 0, md: 8 }}
+          mb={{ base: 4, md: 0 }}
+          order={{ base: 1, md: 2 }}
+        >
+          <Heading
+            fontSize={{ base: '2xl', md: '4xl' }}
+            mb={{ base: 3, md: 6 }}
+            color='white'
+            textAlign={{ base: 'center', md: 'right' }}
+            textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
+            className='cormorant-garamond-header'
+          >
+            What are we{' '}
+            <span
+              style={{ color: '#41e0f8' }}
+              className='cormorant-garamond-italic'
+            >
+              building
+            </span>
+          </Heading>
+          <Text
+            fontSize={{ base: 'md', md: 'lg' }}
+            color='white'
+            textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
+            className='bricolage-grotesque-medium'
+            ml={{ base: 0, md: 'auto' }}
+            width={{ base: '100%', md: '90%' }}
+          >
+            <Highlight
+              query={['crafting the future']}
+              styles={{
+                bg: '#10b0c9',
+                color: 'white',
+                px: 1,
+                borderRadius: 'sm',
+              }}
+            >
+              At Orbyte Studio, we're crafting the future of multimedia
+              storytelling. Like celestial bodies that illuminate the cosmos, we
+              create content that captures imagination and transforms ideas into
+              stellar experiences. Our multimedia company specializes in film
+              production, digital design, strategic campaigns, and immersive
+              brand narratives that resonate across galaxies of audiences.
+            </Highlight>
+          </Text>
+        </Box>
+      </Flex>
+
+      {/* ── WHO WE ARE ─────────────────────────────────────────────── */}
+      <Flex
+        direction={{ base: 'column', md: 'row' }}
+        alignItems='center'
+        justifyContent='space-between'
+        w='100%'
+        maxW='1300px'
+        mb={12}
+        px={{ base: 4, md: 0 }}
+      >
+        <Box
+          flex='1'
+          textAlign='justify'
+          pr={{ base: 0, md: 8 }}
+          mb={{ base: 4, md: 0 }}
+        >
+          <Heading
+            fontSize={{ base: '2xl', md: '4xl' }}
+            mb={{ base: 3, md: 6 }}
+            color='white'
+            textAlign={{ base: 'center', md: 'left' }}
+            textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
+            className='cormorant-garamond-header'
+          >
+            Who we{' '}
+            <span
+              style={{ color: '#41e0f8' }}
+              className='cormorant-garamond-italic'
+            >
+              are
+            </span>
+          </Heading>
+          <Text
+            fontSize={{ base: 'md', md: 'lg' }}
+            color='white'
+            textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
+            className='bricolage-grotesque-medium'
+            width={{ base: '100%', md: '90%' }}
+          >
+            <Highlight
+              query={['moves, inspires, and endures']}
+              styles={{
+                bg: '#10b0c9',
+                color: 'white',
+                px: 1,
+                borderRadius: 'sm',
+              }}
+            >
+              We are dreamers, creators, and cosmic architects united by a
+              shared passion for multimedia excellence. Our constellation
+              includes visionaries from diverse backgrounds—filmmakers,
+              designers, strategists, and storytellers—all orbiting around the
+              common goal of creating content that moves, inspires, and endures.
+            </Highlight>
+          </Text>
+        </Box>
+        <Box flex='1'>
+          <Image
+            src={OrbyteGroupPhoto2}
+            alt='Orbyte Group Photo 2'
+            w='100%'
+            h='400px'
+            objectFit={{ base: 'cover', md: 'fill' }}
             borderRadius='2xl'
           />
         </Box>
       </Flex>
 
-      <Box ref={missionRef} w='100%' maxW='1200px' mb={12}>
-        <Flex
-          direction={{ base: 'column', md: 'row' }}
-          alignItems='center'
-          justifyContent='space-between'
-          px={{ base: 4, md: 0 }}
-        >
-          <Box
-            flex='1'
-            display='flex'
-            justifyContent='center'
-            mt={{ base: 4, md: 0 }}
-            order={{ base: 2, md: 1 }}
+      {/* ── JOIN US CTA ─────────────────────────────────────────────── */}
+      <Box
+        bgGradient='linear(to-r, #10b0c9, #41e0f8)'
+        py={{ base: 12, md: 16 }}
+        borderRadius='xl'
+        mx={{ base: 4, md: 8 }}
+      >
+        <Container maxW='container.xl'>
+          <Flex
+            direction={{ base: 'column', md: 'row' }}
+            align='center'
+            gap={{ base: 6, md: 12 }}
+            textAlign={{ base: 'center', md: 'left' }}
           >
             <Image
-              src={stellar}
-              alt='Stellar'
-              w={{ base: '100%', md: '80%' }}
-              h='300px'
-              objectFit='fill'
-              borderRadius='2xl'
+              src={JoinUsPhoto}
+              alt='Join the Orbyte team'
+              borderRadius='xl'
+              maxW={{ base: '100%', md: '30%' }}
+              objectFit='cover'
+              boxShadow='lg'
             />
-          </Box>
-          <Box
-            flex='1'
-            textAlign='center'
-            pl={{ base: 0, md: 8 }}
-            order={{ base: 1, md: 2 }}
-          >
-            <Heading
-              fontSize={{ base: '5xl', md: '6xl' }}
-              mb={{ base: 8, md: 12 }}
-              className='bebas-neue-regular'
-              color='white'
-              textAlign='center'
-              textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
+            <VStack
+              align={{ base: 'center', md: 'flex-start' }}
+              spacing={4}
+              flex='1'
             >
-              Our{' '}
+              <Heading
+                fontFamily='cormorant'
+                fontSize={{ base: '2xl', md: '4xl' }}
+              >
+                Join the{' '}
+                <Box as='span' fontStyle='italic'>
+                  team
+                </Box>
+              </Heading>
               <Text
-                as='span'
-                color='#a0a0ff'
-                textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
-                bg='rgba(50, 50, 100, 0.6)' // deep cosmic navy with transparency
-                px={2}
-                borderRadius='xl'
+                className='carmorant-garamond-medium'
+                maxW='lg'
+                fontSize='md'
+                textAlign={{ base: 'center', md: 'justify' }}
               >
-                Mission
+                We’re always looking for passionate creators who want to make an
+                impact through storytelling and design. At Orbyte Studio, you’ll
+                collaborate with driven minds, explore bold ideas, and bring
+                visions to life.
               </Text>
-            </Heading>
-            <Separator borderWidth='2px' w='100%' mb={4} />
-            <Text
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='white'
-              textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
-              className='work-sans-regular'
-              textAlign='justify'
-            >
-              <Highlight
-                query={[
-                  'push the boundaries of creative expression',
-                  'visionary storytelling',
-                  'cutting-edge technology',
-                  'authentic human connection',
-                ]}
-                styles={{
-                  bg: '#a0a0ff', // bright lavender background
-                  color: 'black', // dark text stands out more
-                  px: 1,
-                  borderRadius: 'md',
+              <Button
+                as={RouterLink}
+                to='/contact'
+                size='lg'
+                bg='white'
+                color='#10b0c9'
+                fontWeight='bold'
+                borderRadius='full'
+                fontFamily='cormorant'
+                px={8}
+                _hover={{
+                  bg: '#f0f9ff',
+                  transform: 'translateY(-3px)',
+                  boxShadow: 'xl',
                 }}
+                transition='all 0.3s'
               >
-                We exist to push the boundaries of creative expression,
-                transforming ordinary concepts into extraordinary multimedia
-                experiences. Our mission is to be the gravitational force that
-                pulls together visionary storytelling, cutting-edge technology,
-                and authentic human connection. Every project we undertake is
-                guided by our commitment to excellence, innovation, and the
-                belief that great stories have the power to shift perspectives
-                and illuminate new possibilities.
-              </Highlight>
-            </Text>
-          </Box>
-        </Flex>
+                Contact Us
+              </Button>
+            </VStack>
+          </Flex>
+        </Container>
       </Box>
 
-      <Box ref={visionRef} w='100%' maxW='1200px' mt={4}>
-        <Flex
-          direction={{ base: 'column', md: 'row' }}
-          alignItems='center'
-          justifyContent='space-between'
-          px={{ base: 4, md: 0 }}
-          mb={{ base: 0, md: 36 }}
+      {/* Our story section */}
+      <Box
+        textAlign='center'
+        mb={{ base: 12, md: 20 }}
+        bg='#111827'
+        p={{ base: 4, md: 8 }}
+        borderRadius='xl'
+        w='100%'
+      >
+        <Heading
+          className='cormorant-garamond-italic'
+          fontSize={{ base: '2xl', md: '4xl' }}
+          fontWeight='bold'
+          mb={{ base: 2, md: 4 }}
         >
-          <Box
-            flex='1'
-            textAlign='center'
-            pr={{ base: 0, md: 8 }}
-            order={{ base: 1, md: 2 }}
-            mb={{ base: 4, md: 0 }}
-          >
-            <Heading
-              fontSize={{ base: '5xl', md: '6xl' }}
-              mb={{ base: 8, md: 12 }}
-              className='bebas-neue-regular'
-              color='white'
-              textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
-            >
-              Our{' '}
-              <Text
-                as='span'
-                color='#a0a0ff'
-                textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
-                bg='rgba(50, 50, 100, 0.6)' // deep cosmic navy with transparency
-                px={2}
-                borderRadius='xl'
-              >
-                Vision
-              </Text>
-            </Heading>
-            <Separator borderWidth='2px' w='100%' mb={4} />
-            <Text
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='white'
-              textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
-              className='work-sans-regular'
-              textAlign='justify'
-            >
-              <Highlight
-                query={[
-                  'brightest star in the multimedia constellation',
-                  'Launchpad for developing talent',
-                ]}
-                styles={{
-                  bg: '#a0a0ff', // bright lavender background
-                  color: 'black', // dark text stands out more
-                  px: 1,
-                  borderRadius: 'md',
-                }}
-              >
-                Become the brightest star in the multimedia constellation.
-                recognized globally for our ability to transform creative
-                visions reality. We see a future in which Orbyte Studio serves
-                as Launchpad for developing talent, reliable partner for
-                forward-thinking brands are a beacon of innovation in the ever-
-                The world of digital content development is becoming
-                increasingly diverse.
-              </Highlight>
-            </Text>
-          </Box>
-          <Box
-            flex='1'
-            display='flex'
-            justifyContent='center'
-            order={{ base: 1, md: 2 }}
-          >
-            <Image
-              src={orbital}
-              alt='Orbital'
-              w={{ base: '100%', md: '80%' }}
-              h='300px'
-              objectFit='fill'
-              borderRadius='2xl'
-            />
-          </Box>
-        </Flex>
+          Our Story
+        </Heading>
+        <Text
+          opacity={0.7}
+          fontSize={{ base: 'md', md: 'lg' }}
+          maxW='2xl'
+          mx='auto'
+          className='bricolage-grotesque-medium'
+        >
+          Orbyte Studio was born from a simple idea — to stand out and create
+          beyond expectations. What started as a project for our multimedia
+          class soon became a shared vision built on creativity, teamwork, and
+          ambition. From concept to craft, every step shaped who we are today —
+          a collective of storytellers and innovators turning imagination into
+          experience.
+        </Text>
       </Box>
+
+      {/* Mission and Vision section */}
+      <Flex
+        direction={{ base: 'column', md: 'row' }}
+        alignItems='center'
+        justifyContent='space-between'
+        w={{ base: '100%', md: '80%' }}
+        maxW='1200px'
+        mb={12}
+        px={{ base: 4, md: 0 }}
+      >
+        <Box
+          flex='1'
+          textAlign='justify'
+          pr={{ base: 0, md: 8 }}
+          mb={{ base: 4, md: 0 }}
+        >
+          <Heading
+            fontSize={{ base: '2xl', md: '4xl' }}
+            mb={{ base: 3, md: 6 }}
+            color='white'
+            textAlign={{ base: 'center', md: 'left' }}
+            textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
+            className='cormorant-garamond-header'
+          >
+            Our{' '}
+            <span
+              style={{ color: '#41e0f8' }}
+              className='cormorant-garamond-italic'
+            >
+              Mission
+            </span>
+          </Heading>
+          <Text
+            fontSize={{ base: 'md', md: 'lg' }}
+            color='white'
+            textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
+            className='bricolage-grotesque-medium'
+          >
+            <Highlight
+              query={['inspire, connect, and transform']}
+              styles={{
+                bg: '#10b0c9',
+                color: 'white',
+                px: 1,
+                borderRadius: 'sm',
+              }}
+            >
+              At Orbyte Studio, our mission is to craft multimedia experiences
+              that inspire, connect, and transform. We aim to bridge creativity
+              and technology, producing stories that go beyond visuals—stories
+              that evoke emotion, spark curiosity, and leave a lasting
+              impression. Every project we take on is a chance to challenge
+              conventions and celebrate the art of innovation.
+            </Highlight>
+          </Text>
+        </Box>
+        <Box flex='1'>
+          <Image
+            src={MissionPhoto}
+            alt='Orbyte Mission Photo'
+            w='100%'
+            h='350px'
+            objectFit={{ base: 'cover', md: 'fill' }}
+            borderRadius='2xl'
+          />
+        </Box>
+      </Flex>
+
+      <Flex
+        direction={{ base: 'column', md: 'row' }}
+        alignItems='center'
+        justifyContent='space-between'
+        w={{ base: '100%', md: '80%' }}
+        maxW='1200px'
+        mb={16}
+        px={{ base: 4, md: 0 }}
+      >
+        <Box flex='1' order={{ base: 2, md: 1 }}>
+          <Image
+            src={VisionPhoto}
+            alt='Orbyte Vision Photo'
+            w='100%'
+            h='350px'
+            objectFit={{ base: 'cover', md: 'fill' }}
+            borderRadius='2xl'
+          />
+        </Box>
+
+        <Box
+          flex='1'
+          textAlign='justify'
+          pl={{ base: 0, md: 8 }}
+          mb={{ base: 4, md: 0 }}
+          order={{ base: 1, md: 2 }}
+        >
+          <Heading
+            fontSize={{ base: '2xl', md: '4xl' }}
+            mb={{ base: 3, md: 6 }}
+            color='white'
+            textAlign={{ base: 'center', md: 'right' }}
+            textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
+            className='cormorant-garamond-header'
+          >
+            Our{' '}
+            <span
+              style={{ color: '#41e0f8' }}
+              className='cormorant-garamond-italic'
+            >
+              Vision
+            </span>
+          </Heading>
+
+          <Text
+            fontSize={{ base: 'md', md: 'lg' }}
+            color='white'
+            textShadow='0px 2px 4px rgba(0, 0, 0, 0.5)'
+            className='bricolage-grotesque-medium'
+          >
+            <Highlight
+              query={['ignite imagination and innovation']}
+              styles={{
+                bg: '#10b0c9',
+                color: 'white',
+                px: 1,
+                borderRadius: 'sm',
+              }}
+            >
+              Our vision is to ignite imagination and innovation across every
+              medium. At Orbyte Studio, we aim to be a guiding light for
+              creators who dare to dream beyond limits — shaping a future where
+              stories transcend boundaries and creativity becomes a universal
+              language. Through every project we pursue, we aspire to redefine
+              how people experience art, design, and digital storytelling.
+            </Highlight>
+          </Text>
+        </Box>
+      </Flex>
     </Container>
   );
 };
