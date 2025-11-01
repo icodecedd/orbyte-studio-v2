@@ -21,8 +21,12 @@ import CreativeDirector from '@/assets/pii-creative-director.webp';
 import ITSpecialist from '@/assets/pii-it-specialist.webp';
 import MissionPhoto from '@/assets/mission-pii.webp';
 import VisionPhoto from '@/assets/vision-pii.webp';
+import AnimatedContent from '@/blocks/Animations/AnimatedContent/AnimatedContent';
+import { useAboutAnimation } from '@/Hooks/useAboutAnimation';
 
 const About = () => {
+  useAboutAnimation();
+
   return (
     <Container
       as='section'
@@ -41,9 +45,8 @@ const About = () => {
     >
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <Box
-        bgGradient='to-b'
-        gradientFrom={'#0b6477'}
-        gradientTo={'#0a1d2e'}
+        position='relative'
+        bgGradient='linear(to-b, #0b6477, #0a1d2e)'
         p='20px'
         w='100%'
         h={{ base: '35vh', md: '60vh' }}
@@ -52,67 +55,84 @@ const About = () => {
         display='flex'
         flexDirection='column'
         alignItems='center'
+        justifyContent='center'
+        overflow='hidden'
       >
-        <Text
-          className='cormorant-garamond-header'
-          fontWeight='medium'
-          fontSize={{ base: 'sm', md: 'lg' }}
-          letterSpacing='wide'
-          textTransform='uppercase'
-          opacity={0.9}
-        >
-          About Orbyte Studio
-        </Text>
-        <Heading
-          className='cormorant-garamond-header'
-          fontSize={{ base: '4xl', md: '7xl' }}
-          textAlign='center'
-          letterSpacing='tight'
-          lineHeight={0.9}
-        >
-          H
-          <Box
-            as='span'
-            className='cormorant-garamond-italic'
-            color='#41e0f8'
-            fontSize={{ base: '4xl', md: '7xl' }}
-          >
-            o
-          </Box>
-          w it all st
-          <Box
-            as='span'
-            className='cormorant-garamond-italic'
-            fontSize={{ base: '4xl', md: '7xl' }}
-          >
-            a
-          </Box>
-          rted
-        </Heading>
-      </Box>
-      {/* ── ANIMATION ─────────────────────────────────────────────── */}
-      <Box h={{ base: '10vh', md: '30vh' }}>
+        {/* ── VIDEO BACKGROUND (Covers 50% of hero) ────────────────── */}
         <Box
           as='video'
           autoPlay
           muted
           loop
           playsInline
-          borderRadius='2xl'
-          boxShadow='2xl'
-          width='100%'
-          maxW='900px'
-          position='absolute'
-          top={{ base: '2.5%', md: '4%' }}
-          left={{ base: '0', md: '20%' }}
           src={OrbyteAnimation}
+          position='absolute'
+          top='50%'
+          left='50%'
+          transform='translate(-50%, -50%)'
+          width='100%'
+          height='100%'
+          objectFit='cover'
+          opacity={0.4}
+          zIndex='0'
+        />
+
+        {/* ── CONTENT ─────────────────────────────────────────────── */}
+        <AnimatedContent
+          distance={100}
+          direction='vertical'
+          reverse={false}
+          duration={0.5}
+          ease='power3.out'
+          animateOpacity
+          scale={4}
+          threshold={0.1}
+          zIndex='1' // ✅ ensure text stays above video
         >
-          Your browser does not support the video tag.
-        </Box>
+          <Text
+            className='cormorant-garamond-header'
+            fontWeight='medium'
+            fontSize={{ base: 'sm', md: 'lg' }}
+            letterSpacing='wide'
+            textTransform='uppercase'
+            opacity={0.9}
+            color='white'
+          >
+            About Orbyte Studio
+          </Text>
+          <Heading
+            className='cormorant-garamond-header'
+            fontSize={{ base: '4xl', md: '7xl' }}
+            textAlign='center'
+            letterSpacing='tight'
+            lineHeight={0.9}
+            color='white'
+          >
+            H
+            <Box
+              as='span'
+              className='cormorant-garamond-italic'
+              color='#41e0f8'
+              fontSize={{ base: '4xl', md: '7xl' }}
+            >
+              o
+            </Box>
+            w it all st
+            <Box
+              as='span'
+              className='cormorant-garamond-italic'
+              fontSize={{ base: '4xl', md: '7xl' }}
+            >
+              a
+            </Box>
+            rted
+          </Heading>
+        </AnimatedContent>
       </Box>
 
       {/* ── ORIGIN STORY ─────────────────────────────────────────────── */}
       <Box
+        id='origin-story-section'
         w='100%'
         display='flex'
         justifyContent='center'
@@ -120,9 +140,8 @@ const About = () => {
       >
         <Text
           fontSize={{ base: 'md', md: 'lg' }}
-          textAlign='center'
+          textAlign={{ base: 'justify', md: 'center' }}
           className='bricolage-grotesque-medium'
-          my={{ base: 2, md: 4 }}
           lineHeight='tall'
           w='80%'
         >
@@ -136,6 +155,7 @@ const About = () => {
 
       {/* ── STATS ─────────────────────────────────────────────────────── */}
       <SimpleGrid
+        id='stats-section'
         w='100%'
         mb={{ base: 8, md: 12 }}
         columns={{ base: 1, sm: 2, md: 3 }}
@@ -235,7 +255,11 @@ const About = () => {
       </SimpleGrid>
 
       {/* ── LEADERSHIP INTRO ─────────────────────────────────────────── */}
-      <Box textAlign='center' py={{ base: 12, md: 20 }}>
+      <Box
+        id='leadership-intro-section'
+        textAlign='center'
+        py={{ base: 12, md: 20 }}
+      >
         <Heading
           className='cormorant-garamond-italic'
           fontSize={{ base: '3xl', md: '5xl' }}
@@ -258,6 +282,7 @@ const About = () => {
       </Box>
 
       <SimpleGrid
+        id='leadership-photos-section'
         columns={{ base: 1, sm: 2, md: 4 }}
         gap={{ base: 4, md: 2 }}
         mb={{ base: 12, md: 16 }}
@@ -323,6 +348,7 @@ const About = () => {
       >
         <Box flex='1' order={{ base: 2, md: 1 }}>
           <Image
+            id='what-we-build-image'
             src={OrbyteGroupPhoto1}
             alt='Orbyte Group Photo 1'
             w='100%'
@@ -339,6 +365,7 @@ const About = () => {
           order={{ base: 1, md: 2 }}
         >
           <Heading
+            id='what-we-build-header'
             fontSize={{ base: '2xl', md: '4xl' }}
             mb={{ base: 3, md: 6 }}
             color='white'
@@ -399,6 +426,7 @@ const About = () => {
           mb={{ base: 4, md: 0 }}
         >
           <Heading
+            id='who-we-are-header'
             fontSize={{ base: '2xl', md: '4xl' }}
             mb={{ base: 3, md: 6 }}
             color='white'
@@ -440,6 +468,7 @@ const About = () => {
         </Box>
         <Box flex='1'>
           <Image
+            id='who-we-are-image'
             src={OrbyteGroupPhoto2}
             alt='Orbyte Group Photo 2'
             w='100%'
@@ -452,6 +481,7 @@ const About = () => {
 
       {/* ── JOIN US CTA ─────────────────────────────────────────────── */}
       <Box
+        id='join-us-cta-section'
         bgGradient='linear(to-r, #10b0c9, #41e0f8)'
         py={{ base: 12, md: 16 }}
         borderRadius='xl'
@@ -523,6 +553,7 @@ const About = () => {
 
       {/* Our story section */}
       <Box
+        ID='our-story-section'
         textAlign='center'
         mb={{ base: 12, md: 20 }}
         bg='#111827'
@@ -541,7 +572,7 @@ const About = () => {
         <Text
           opacity={0.7}
           fontSize={{ base: 'md', md: 'lg' }}
-          maxW='2xl'
+          maxW='4xl'
           mx='auto'
           className='bricolage-grotesque-medium'
         >
@@ -571,6 +602,7 @@ const About = () => {
           mb={{ base: 4, md: 0 }}
         >
           <Heading
+            id='mission-header'
             fontSize={{ base: '2xl', md: '4xl' }}
             mb={{ base: 3, md: 6 }}
             color='white'
@@ -612,6 +644,7 @@ const About = () => {
         </Box>
         <Box flex='1'>
           <Image
+            id='mission-image'
             src={MissionPhoto}
             alt='Orbyte Mission Photo'
             w='100%'
@@ -633,6 +666,7 @@ const About = () => {
       >
         <Box flex='1' order={{ base: 2, md: 1 }}>
           <Image
+            id='vision-image'
             src={VisionPhoto}
             alt='Orbyte Vision Photo'
             w='100%'
@@ -650,6 +684,7 @@ const About = () => {
           order={{ base: 1, md: 2 }}
         >
           <Heading
+            id='vision-header'
             fontSize={{ base: '2xl', md: '4xl' }}
             mb={{ base: 3, md: 6 }}
             color='white'
