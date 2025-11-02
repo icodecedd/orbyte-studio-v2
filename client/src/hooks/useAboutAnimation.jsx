@@ -5,17 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export const useAboutAnimation = () => {
-  const whatWeBuildRef = useRef(null);
-  const whoWeAreRef = useRef(null);
-  const whatWeBuildTitleRef = useRef(null);
-  const whoWeAreTitleRef = useRef(null);
-  const joinUsRef = useRef(null);
-  const ourStoryRef = useRef(null);
-  const missionRef = useRef(null);
-  const visionRef = useRef(null);
-  const missionTitleRef = useRef(null);
-  const visionTitleRef = useRef(null);
-
   useEffect(() => {
     // Origin section animation
     gsap.fromTo(

@@ -13,11 +13,8 @@ import {
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 import orbyteLogo from '@/assets/orbyte-logo-phase-ii.webp';
-import orbyteLogoHover from '@/assets/orbyte-logo-black-phase-ii.webp';
-import { useState } from 'react';
 
 const Home = () => {
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <Container
@@ -62,22 +59,18 @@ const Home = () => {
         <FadeContent blur duration={1500} easing='ease-out' initialOpacity={0}>
           <Flex justify-content='center' align='center'>
             <Box
-              bg={isHovered ? 'white' : 'transparent'}
+              bg={'transparent'}
               borderRadius='full'
               p={2}
               transition='all 0.3s ease'
               display='inline-flex'
               alignItems='center'
               justifyContent='center'
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              cursor='pointer'
             >
               <Image
                 height={{ base: '25px', md: '35px' }}
-                src={isHovered ? orbyteLogoHover : orbyteLogo}
+                src={orbyteLogo}
                 alt='Orbyte Logo'
-                transition='all 0.3s ease'
               />
             </Box>
             <Heading

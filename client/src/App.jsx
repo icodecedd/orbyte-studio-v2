@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import Home from './pages/Home';
-import Team from './pages/Team';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Feedback from './pages/Feedback';
