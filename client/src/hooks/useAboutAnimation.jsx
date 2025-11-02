@@ -120,7 +120,7 @@ export const useAboutAnimation = () => {
         duration: 0.8,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: '#w ho-we-are-image',
+          trigger: '#who-we-are-image',
           start: 'top 80%',
           end: 'top 40%',
           scrub: 0.8,

@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Feedback from './pages/Feedback';
 import About from './pages/About';
 import Temp from './pages/Temp';
+import Who from './pages/Who';
 import './assets/global.css';
 import { Toaster } from './components/ui/toaster';
 
@@ -19,7 +20,7 @@ function App() {
           <Route index element={<Navigate to='/home' replace />} />
           <Route path='home' element={<Home />} />
           <Route path='about' element={<About />} />
-          <Route path='team' element={<Team />} />
+          <Route path='team' element={<Who />} />
           <Route path='projects' element={<Projects />} />
           <Route path='contact' element={<Contact />} />
           <Route path='feedback' element={<Feedback />} />

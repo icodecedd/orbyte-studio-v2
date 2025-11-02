@@ -19,8 +19,8 @@ import ChiefExecutiveOfficer from '@/assets/pii-chief-executive-officer.webp';
 import ProjectManager from '@/assets/pii-project-manager.webp';
 import CreativeDirector from '@/assets/pii-creative-director.webp';
 import ITSpecialist from '@/assets/pii-it-specialist.webp';
-import MissionPhoto from '@/assets/mission-pii.webp';
-import VisionPhoto from '@/assets/vision-pii.webp';
+import MissionPhoto from '@/assets/mission-pup.webp';
+import VisionPhoto from '@/assets/vision-founders.webp';
 import AnimatedContent from '@/blocks/Animations/AnimatedContent/AnimatedContent';
 import { useAboutAnimation } from '@/Hooks/useAboutAnimation';
 
@@ -46,7 +46,6 @@ const About = () => {
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <Box
         position='relative'
-        bgGradient='linear(to-b, #0b6477, #0a1d2e)'
         p='20px'
         w='100%'
         h={{ base: '35vh', md: '60vh' }}
@@ -85,9 +84,9 @@ const About = () => {
           duration={0.5}
           ease='power3.out'
           animateOpacity
-          scale={4}
+          scale={3}
           threshold={0.1}
-          zIndex='1' // ✅ ensure text stays above video
+          zIndex='1'
         >
           <Text
             className='cormorant-garamond-header'
@@ -553,7 +552,7 @@ const About = () => {
 
       {/* Our story section */}
       <Box
-        ID='our-story-section'
+        id='our-story-section'
         textAlign='center'
         mb={{ base: 12, md: 20 }}
         bg='#111827'
